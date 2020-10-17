@@ -1,0 +1,67 @@
+body {
+    background: #F1F2F8
+}
+* {
+    box-sizing: border-box;
+}
+tbody tr td b {
+    color: red;
+}
+input.form-control {
+    width: 100%;
+}
+/* .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: 1px solid #000;
+    
+} */
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: none;
+}
+table.table.table-striped.table-bordered {
+    border: hidden;
+}
+table {
+    border-spacing: 0;
+    width: 100%;
+    max-width: 100%;
+}
+a, th a, .table-striped td {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+thead {
+    background: #F1F2F8
+}
+tr {
+    background:#E5E6EB
+}
+th a {
+    white-space: nowrap;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    padding: .375rem .75rem;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    background-color: #fff;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+div#root {
+    width: 100%;
+    max-width: 100%;
+ }
+/* .customerView {
+    margin-top: 30px;
+}  */
+
