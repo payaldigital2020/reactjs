@@ -11,6 +11,7 @@ class ThumbView extends React.Component {
           breadCrumbTitle="Games"
           breadCrumbParent="Home"
           breadCrumbActive="Games List"
+       
         />
         <Row>
           <Col sm="12">

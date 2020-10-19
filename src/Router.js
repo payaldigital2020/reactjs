@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Spinner from "./components/@vuexy/spinner/Loading-spinner"
 import { ContextLayout } from "./utility/context/Layout"
 import GamePage  from "./views/pages/games/GamePage"
+// import Viewlist from "./player/Viewconfig"
 //  import Playerlist from "./views/pages/Player/Playerlist"
 // Route-based code splitting
 
@@ -14,6 +15,9 @@ const Home = lazy(() =>
 )
 const PlayerList = lazy(() =>
 import("./views/pages/PlayerList"));
+
+const Viewlist = lazy(() =>
+import("./views/pages/Player/Viewlist"));
 
 const Game = lazy(() => import("./views/game/list/ThumbView"));
 
@@ -86,6 +90,11 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/player"
             component={PlayerList}
+            // fullLayout
+          />
+             <AppRoute
+            path="/profile-view"
+            component={Viewlist}
             // fullLayout
           />
         </Switch>
