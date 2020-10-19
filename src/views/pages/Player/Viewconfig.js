@@ -12,7 +12,7 @@ import {
 } from "reactstrap"
 import { Edit, Trash, Lock, Check } from "react-feather"
 import { Link } from "react-router-dom"
-import Checkbox from "../../../components/@vuexy/checkbox/CheckboxesVuexy"
+// import Checkbox from "../../../components/@vuexy/checkbox/CheckboxesVuexy"
 import userImg from "../../../assets/img/portrait/small/avatar-s-18.jpg"
 import "../../../assets/scss/pages/users.scss"
 export default class Viewconfig extends Component {

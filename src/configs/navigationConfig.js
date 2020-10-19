@@ -32,6 +32,14 @@ const navigationConfig = [
     icon: <Icon.File size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/profile-view"
+  },
+  {
+    id: "edit",
+    title: "edit",
+    type: "item",
+    icon: <Icon.File size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/profile-edit"
   }
 ]
 
