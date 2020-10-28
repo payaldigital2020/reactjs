@@ -19,6 +19,9 @@ import("./views/pages/PlayerList"));
 const Viewlist = lazy(() =>
 import("./views/pages/Player/Viewlist"));
 
+const ListView = lazy(() =>
+import("./views/pages/Player/ListView"));
+
 const Editlist = lazy(() =>
 import("./views/pages/Player/Editlist"));
 
@@ -26,6 +29,7 @@ const Game = lazy(() => import("./views/game/list/ThumbView"));
 
 const login = lazy(() =>
   import("./views/pages/authentication/login/Login")
+
 )
 
 // Set Layout and Component Using App Route
@@ -103,6 +107,11 @@ class AppRouter extends React.Component {
               <AppRoute
             path="/profile-edit"
             component={Editlist}
+            // fullLayout
+          />
+             <AppRoute
+            path="/list-view"
+            component={ListView}
             // fullLayout
           />
         </Switch>

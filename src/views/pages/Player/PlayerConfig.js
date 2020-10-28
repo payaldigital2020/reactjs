@@ -1,46 +1,48 @@
-
 import React, { Component } from "react";
-import { Search } from "react-feather";
 import { Link } from "react-router-dom";
-import { Button, Card, CardBody, CardHeader, Col, FormGroup, Input, Row, Table } from "reactstrap";
+import { Button, Card, CardBody, CardHeader, Row, Col, FormGroup, Input , Table } from "reactstrap";
 import * as Icon from "react-feather"
-// import { makeStyles } from '@material-ui/core/styles';
-// import css from "./Tabledata.css";
-
+import { playerlist, playerList } from "../../../redux/actions/player/index"
+import Chip from "../../../components/@vuexy/chips/ChipComponent"
+import { Edit, Trash, Eye, Search } from "react-feather"
+const chipColors = {
+  "false": "warning",
+  "true": "success",
+}
 
 export default class PlayerConfig extends Component {
  
-
   constructor() {
     super();
     this.state = {
+      search : '',
+      data : [],
       messageBox: false
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-
+    }
   }
-  handleClick(e) {
-    
-    console.log('clicked');   
-   this.setState({
-     messageBox: !this.state.messageBox
-   });
 
-   this.props.chnegBtnState(!this.state.messageBox);
-
+  componentDidMount(){
+    playerlist()
+    .then( res => {
+      if( res.code === 1 ) {
+        this.setState( { data : res.result } , () => { console.log( this.state.data ) } ) 
+      }
+    else{
+        console.log(res)
+      }
+    })
   }
 
   render() {
+    const { data } = this.state
     return (
-      
-    <Card>
-    <CardHeader>
+        <Card>
+          <CardHeader>
             <Col md="5" >
               <Button>
                 <Link
                   to={{
-                    pathname : '/add-Pslayer'
+                    pathname : '/add-player'
                   }}
                 >
                   < Icon.PlusCircle size={15} /> &nbsp;&nbsp; Add Player
@@ -51,7 +53,7 @@ export default class PlayerConfig extends Component {
               <FormGroup className="form-label-group position-relative has-icon-right pt-2">
                 <Input
                   type="text"
-                  placeholder="Serch"
+                  placeholder="Search"
                   value={this.state.search}
                   onChange={e => this.setState({ search: e.target.value })}
                 />
@@ -62,127 +64,97 @@ export default class PlayerConfig extends Component {
             </Col>
          </CardHeader>
       <CardBody>
-   
-      <Table className="table table-striped table-bordered">
-                  <thead className="display-block">
-                    <tr>
-                      <th>#</th>
-                      <th>
-                        <input 
-                          type="checkbox"
-                          checked="checkbox"
-                          
-                         className="select-on-check-all checkbox"
-                         name="selection[]"
-       
+        {
+          data.length === 0 ? 
+          <Row>
+            <Col sm="12" className="text-center">
+              No Record Found
+            </Col>
+          </Row> :
+        <Table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>App</th>
+              <th>State</th>
+              <th>City</th>
+              <th>Wallet</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              data.map( ( item, index ) => {
+                return(
+                  <tr key={ item._id }>
+                    <td>{ parseInt(index) + 1 }</td>
+                    <td>{ item.firstname }</td>
+                    <td>{ item.lastname }</td>
+                    <td>{ item.email }</td>
+                    <td>{ item.mobilenumber ?? 'Not Added' }</td>
+                    <td>{ item.app ?? 'Not Added' }</td>
+                    <td>{ item.state ?? 'Not Added' }</td>
+                    <td>{ item.city ?? 'Not Added' }</td>
+                    <td>{ item.balance ?? 'Not Added' }</td>
+                    <td>
+                      <Chip
+                        className="cursor-pointer mr-1"
+                        color={chipColors[item.status]}
+                        text={ item.status ? 'Active' : 'Deactive' }
+                      />
+                    </td>
+                    <td>
+                      <Link
+                        title="View Player"
+                        className="cursor-pointer mr-1"
+                        to={{
+                          pathname: "/profile-view",
+                          state: {
+                            playerData : item ?? []
+                          }
+                        }}
+                      >
+                        <Eye
+                          className="cursor-pointer"
+                          size={20}
                         />
-
-                      </th>
-                      <th>
-                        <a href="" data-sort="dp_id">
-                          Dp ID
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="name">
-                          Name
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="mobile">
-                          Mobile
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="app">
-                          App
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" ddata-sort="state">
-                          State
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="created">
-                          Created
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="city">
-                          City
-                        </a>
-                      </th>
-                      <th>
-                        <a href="">Version</a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="account_status">
-                          AC Status
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="note">
-                          Note
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="emp_name">
-                          Employee Name
-                        </a>
-                      </th>
-                      <th>
-                        <a href="" data-sort="favourite">
-                          favourite
-                        </a>
-                      </th>
-                    </tr>
-                    
-                  </thead>
-
-        <tbody className="display-block">
-                    <tr data-key="19171">
-                      <td>1</td>
-                      <td>
-                        <input
-                          type="checkbox"
-                          name="selection[]"
-                          className="checkbox"
-                          value="19171"
+                      </Link>
+                      <Link
+                        title="Edit Player"
+                        className="cursor-pointer mr-1"
+                        to={{
+                          pathname: "/profile-edit",
+                          state: {
+                            playerData : item
+                          }
+                        }}
+                      >
+                        <Edit
+                          title="Edit Player"
+                          className="cursor-pointer text-success"
+                          size={20}
                         />
-                      </td>
-                      <td>DP_ID-19399</td>
-                      <td>*****</td>
-                      <td>*********</td>
-                      <td>*********</td>
-                      <td>Karnataka</td>
-                      <td>2020-08-18</td>
-                      <td>Uttara Kannada /Karwar</td>
-                      <td>2</td>
-                      <td>Active</td>
-                      <td>
-                        <b>No</b>
-                      </td>
-                      <td>No</td>
-                      <td>
-                        <a href="">
-                          <img
-                            src="http://satta5.com/images/Off.png"
-                            width="40"
-                            height="40"
-                            alt=""
-                          />
-                        </a>
-                      </td>
-                    </tr>
-                    
-                  </tbody>
-    
-    
-                </Table>
+                      </Link>
+                      <Trash
+                        title="Delete layer"
+                        className="cursor-pointer text-danger"
+                        size={20}
+                      />
+                    </td>
+                  </tr>
+                )
+              })
+            }
+          </tbody>
+        </Table>
+        }
       </CardBody>
-    </Card>
-  
+    </Card>  
     );
   }
 }
