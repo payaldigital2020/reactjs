@@ -25,6 +25,9 @@ import("./views/pages/Player/ListView"));
 const Editlist = lazy(() =>
 import("./views/pages/Player/Editlist"));
 
+const AddRole = lazy(() =>
+import("./views/pages/Player/AddRole"));
+
 const Game = lazy(() => import("./views/game/list/ThumbView"));
 
 const login = lazy(() =>
@@ -112,6 +115,11 @@ class AppRouter extends React.Component {
              <AppRoute
             path="/list-view"
             component={ListView}
+            // fullLayout
+          />
+            <AppRoute
+            path="/add-role"
+            component={AddRole}
             // fullLayout
           />
         </Switch>

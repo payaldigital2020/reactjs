@@ -48,6 +48,14 @@ const navigationConfig = [
     icon: <Icon.File size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/list-view"
+  },
+  {
+    id: "add role",
+    title: "add role",
+    type: "item",
+    icon: <Icon.File size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/add-role"
   }
 ]
 
