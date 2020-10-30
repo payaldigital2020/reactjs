@@ -56,7 +56,23 @@ const navigationConfig = [
     icon: <Icon.File size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/add-role"
-  }
+  },
+  {
+    id: "player satta",
+    title: "player satta",
+    type: "item",
+    icon: <Icon.File size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/player-satta"
+  },
+  {
+    id: "fund request",
+    title: "fund request",
+    type: "item",
+    icon: <Icon.File size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/fund-request"
+  },
 ]
 
 export default navigationConfig

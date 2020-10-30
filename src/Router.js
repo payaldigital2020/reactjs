@@ -28,6 +28,12 @@ import("./views/pages/Player/Editlist"));
 const AddRole = lazy(() =>
 import("./views/pages/Player/AddRole"));
 
+const PlayerSatta = lazy(() =>
+import("./views/pages/PlayerSatta"));
+
+const FundRequest = lazy(() =>
+import("./views/pages/Player/FundRequest"));
+
 const Game = lazy(() => import("./views/game/list/ThumbView"));
 
 const login = lazy(() =>
@@ -120,6 +126,16 @@ class AppRouter extends React.Component {
             <AppRoute
             path="/add-role"
             component={AddRole}
+            // fullLayout
+          />
+           <AppRoute
+            path="/player-satta"
+            component={PlayerSatta}
+            // fullLayout
+          />
+            <AppRoute
+            path="/fund-request"
+            component={FundRequest}
             // fullLayout
           />
         </Switch>
