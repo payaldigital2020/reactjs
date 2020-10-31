@@ -8,7 +8,7 @@ export default class FundRequestConfig extends Component {
           <Card>
           <div className="">
                 <Jumbotron className="m-0 p-1 bg-danger text-white d-flex justify-content-center rounded-0">
-          <h1 className="text-white"><strong>ROZARPAY FUND REQUEST</strong></h1>
+          <h1 className="text-white"><strong>RAZORPAY FUND REQUEST</strong></h1>
       </Jumbotron>
 
       <div className="mt-4">

@@ -5,9 +5,6 @@ import { connect } from "react-redux"
 import Spinner from "./components/@vuexy/spinner/Loading-spinner"
 import { ContextLayout } from "./utility/context/Layout"
 import GamePage  from "./views/pages/games/GamePage"
-// import Viewlist from "./player/Viewconfig"
-//  import Playerlist from "./views/pages/Player/Playerlist"
-// Route-based code splitting
 
 
 const Home = lazy(() =>
@@ -33,6 +30,15 @@ import("./views/pages/PlayerSatta"));
 
 const FundRequest = lazy(() =>
 import("./views/pages/Player/FundRequest"));
+
+const CreateResultAnnouncer = lazy(() =>
+import("./views/pages/Player/CreateResultAnnouncer"));
+
+const ResultAnnouncer = lazy(() =>
+import("./views/pages/Player/ResultAnnouncer"));
+
+const KingBazars = lazy(() =>
+import("./views/pages/Player/KingBazars"));
 
 const Game = lazy(() => import("./views/game/list/ThumbView"));
 
@@ -136,6 +142,21 @@ class AppRouter extends React.Component {
             <AppRoute
             path="/fund-request"
             component={FundRequest}
+            // fullLayout
+          />
+            <AppRoute
+            path="/create-result"
+            component={CreateResultAnnouncer}
+            // fullLayout
+          />
+            <AppRoute
+            path="/result-announcer"
+            component={ResultAnnouncer}
+            // fullLayout
+          />
+            <AppRoute
+            path="/king-bazars"
+            component={KingBazars}
             // fullLayout
           />
         </Switch>

@@ -73,6 +73,30 @@ const navigationConfig = [
     permissions: ["admin", "editor"],
     navLink: "/fund-request"
   },
+  {
+    id: "create-result",
+    title: "create-result",
+    type: "item",
+    icon: <Icon.File size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/create-result"
+  },
+  {
+    id: "result-announcer",
+    title: "result-announcer",
+    type: "item",
+    icon: <Icon.File size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/result-announcer"
+  },
+  {
+    id: "king-bazars",
+    title: "king-bazars",
+    type: "item",
+    icon: <Icon.File size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/king-bazars"
+  },
 ]
 
 export default navigationConfig
